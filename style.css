@@ -5,7 +5,7 @@ body {
     padding: 20px;
 }
 
-h1, h2, p, img {
+h1, h2, p, li, ol, h3 {
   text-align: center;
 }
 
@@ -13,4 +13,10 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+a {
+    text-align: center;
+  color: white;
+  text-decoration: none;
 }
