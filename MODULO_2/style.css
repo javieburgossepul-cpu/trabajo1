@@ -1,0 +1,309 @@
+
+/* Selecciona TODOS los elementos HTML para aplicar un reset básico */
+* {
+    margin: 0;           /* Elimina todos los márgenes por defecto del navegador */
+    padding: 0;          /* Elimina todo el padding por defecto del navegador */
+    box-sizing: border-box; /* Hace que el padding y border se incluyan dentro del width/height total */
+}
+
+/* Estilos para el cuerpo principal de la página */
+body {
+    /* Define una fuente "stack" - usa fuentes del sistema para mejor rendimiento */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.6;    /* Altura de línea para mejor legibilidad (1.6 veces el tamaño de fuente) */
+    color: #333;         /* Color de texto principal (gris oscuro casi negro) */
+    background-color: #b4ffd5; /* Color de fondo de toda la página (gris muy claro) */
+}
+
+/* Clase contenedora para centrar y limitar el ancho del contenido */
+.container {
+    max-width: 1200px;   /* Ancho máximo del contenido en pantallas grandes */
+    margin: 0 auto;      /* Centra horizontalmente: margen 0 arriba/abajo, automático izquierda/derecha */
+    padding: 0 1rem;     /* Padding interno: 0 arriba/abajo, 1rem (16px) izquierda/derecha */
+}
+
+/* Clase para texto de tamaño reducido (usado para fechas, información secundaria) */
+.small {
+    font-size: 0.875rem; /* Tamaño de fuente: 14px (0.875 del tamaño base de 16px) */
+    color: #666;         /* Color gris para texto secundario/less importante */
+}
+
+/* Clase para accesibilidad - oculta elementos visualmente pero los lectores de pantalla los pueden leer */
+.sr-only {
+    position: absolute;  /* Saca el elemento del flujo normal del documento */
+    width: 1px;          /* Ancho mínimo posible */
+    height: 1px;         /* Alto mínimo posible */
+    padding: 0;          /* Sin padding interno */
+    margin: -1px;        /* Margen negativo para moverlo fuera del viewport visible */
+    overflow: hidden;    /* Oculta cualquier contenido que se desborde */
+    clip: rect(0, 0, 0, 0); /* Recorta el elemento a 0 en todas las direcciones */
+    white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+    border: 0;           /* Elimina cualquier borde */
+}
+
+/* ===== HEADER ===== */
+/* Estilos para la cabecera del sitio */
+.site-header {
+    background-color: #fff;      /* Fondo blanco */
+    border-bottom: 1px solid #eaeaea; /* Línea gris muy clara en la parte inferior */
+    padding: 1.5rem 0;          /* Espaciado interno: 24px arriba/abajo, 0 izquierda/derecha */
+    position: sticky;           /* Hace que el header se quede fijo al hacer scroll */
+    top: 0;                     /* Se pega en la parte superior de la ventana */
+    z-index: 100;               /* Asegura que el header esté por encima de otros elementos */
+}
+
+/* Contenedor dentro del header - usa Flexbox para alinear elementos */
+.site-header .container {
+    display: flex;              /* Activa el modelo Flexbox */
+    justify-content: space-between; /* Distribuye espacio: título a la izquierda, navegación a la derecha */
+    align-items: center;        /* Centra verticalmente los elementos dentro del contenedor */
+}
+
+/* Estilos para el título principal del blog en el header */
+.site-title {
+    font-size: 1.8rem;         /* Tamaño grande del título (28.8px si el base es 16px) */
+    font-weight: 700;          /* Peso de fuente: negrita */
+    color: #222;               /* Color casi negro para el título */
+}
+
+/* Contenedor de navegación dentro del header */
+.site-header nav {
+    display: flex;              /* Usa Flexbox para los enlaces de navegación */
+    gap: 2rem;                  /* Espacio de 32px entre cada enlace de navegación */
+}
+
+/* Estilos para los enlaces de navegación */
+.site-header nav a {
+    text-decoration: none;      /* Elimina el subrayado por defecto de los enlaces */
+    color: #555;                /* Color gris medio para los enlaces */
+    font-weight: 500;           /* Peso de fuente medio (ni normal ni negrita) */
+    transition: color 0.2s;     /* Transición suave de 0.2 segundos para cambios de color */
+}
+
+/* Efecto cuando el cursor pasa sobre los enlaces de navegación */
+.site-header nav a:hover {
+    color: #007acc;            /* Cambia a color azul al hacer hover */
+}
+
+/* ===== LAYOUT PRINCIPAL ===== */
+/* Contenedor principal que usa CSS Grid para el layout de dos columnas */
+.layout {
+    display: grid;              /* Activa CSS Grid para el layout */
+    grid-template-columns: 1fr 300px; /* Crea 2 columnas: primera flexible (fr), segunda fija de 300px */
+    gap: 3rem;                  /* Espacio de 48px entre las dos columnas */
+    padding: 3rem 0;           /* Padding interno: 48px arriba/abajo, 0 izquierda/derecha */
+    align-items: start;        /* Alinea los elementos de la grid al inicio (evita que se estiren) */
+}
+
+/* ===== ARTÍCULO ===== */
+/* Estilos para el contenedor principal del artículo */
+.post {
+    background-color: #fff;     /* Fondo blanco para el artículo */
+    padding: 2.5rem;           /* Espaciado interno de 40px en todos los lados */
+    border-radius: 8px;        /* Esquinas redondeadas con radio de 8px */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Sombra sutil con transparencia */
+}
+
+/* Cabecera del artículo (contiene título, autor y fecha) */
+.post header {
+    margin-bottom: 2rem;       /* Espacio de 32px debajo de la cabecera */
+    padding-bottom: 1.5rem;    /* Padding interno inferior de 24px */
+    border-bottom: 1px solid #eee; /* Línea separadora gris muy clara */
+}
+
+/* Título principal del artículo (h2 con id específico) */
+#post-title {
+    font-size: 2.2rem;         /* Tamaño muy grande para el título (35.2px) */
+    line-height: 1.2;          /* Altura de línea reducida para títulos grandes */
+    margin-bottom: 0.5rem;     /* Pequeño espacio de 8px debajo del título */
+    color: #222;               /* Color casi negro para el título */
+}
+
+/* Estilos para todos los párrafos dentro del artículo */
+.post p {
+    margin-bottom: 1.5rem;     /* Espacio de 24px entre párrafos */
+    font-size: 1.1rem;         /* Tamaño de fuente ligeramente mayor (17.6px) */
+    line-height: 1.7;          /* Altura de línea generosa para mejor lectura */
+}
+
+/* Subtítulos de tercer nivel dentro del artículo */
+.post h3 {
+    font-size: 1.5rem;         /* Tamaño de 24px para subtítulos */
+    margin: 2rem 0 1rem;      /* Márgenes: 32px arriba, 0 izquierda/derecha, 16px abajo */
+    color: #333;               /* Color gris oscuro para subtítulos */
+}
+
+/* Estilos para citas o blockquotes dentro del artículo */
+.post blockquote {
+    border-left: 4px solid #007acc; /* Línea vertical azul a la izquierda */
+    padding-left: 1.5rem;      /* Espacio de 24px a la izquierda del texto */
+    margin: 2rem 0;           /* Márgenes: 32px arriba y abajo */
+    font-style: italic;       /* Texto en cursiva para indicar cita */
+    color: #555;              /* Color gris medio para el texto de la cita */
+}
+
+/* Listas no ordenadas dentro del artículo */
+.post ul {
+    margin: 2rem 0 2rem 2rem; /* Márgenes: 32px arriba, 0 derecha, 32px abajo, 32px izquierda */
+    list-style-type: disc;    /* Muestra viñetas redondas (puntos) */
+}
+
+/* Elementos individuales de lista dentro del artículo */
+.post li {
+    margin-bottom: 0.75rem;   /* Espacio de 12px entre items de lista */
+    font-size: 1.1rem;        /* Mismo tamaño de fuente que los párrafos (17.6px) */
+}
+
+/* ===== BARRA LATERAL ===== */
+/* Contenedor de la barra lateral (sidebar) */
+.sidebar {
+    display: flex;              /* Usa Flexbox para organizar las tarjetas */
+    flex-direction: column;     /* Apila las tarjetas verticalmente */
+    gap: 1.5rem;               /* Espacio de 24px entre tarjetas */
+    position: sticky;          /* Hace que la sidebar se quede fija al hacer scroll */
+    top: 6rem;                 /* Se pega 96px desde la parte superior (debajo del header) */
+}
+
+/* Estilos para las tarjetas dentro de la sidebar */
+.card {
+    background-color: #fff;     /* Fondo blanco para las tarjetas */
+    padding: 1.5rem;           /* Espaciado interno de 24px */
+    border-radius: 8px;        /* Esquinas redondeadas igual que el artículo */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Sombra sutil igual que el artículo */
+}
+
+/* Títulos dentro de las tarjetas */
+.card h3 {
+    font-size: 1.2rem;         /* Tamaño de 19.2px para títulos de tarjeta */
+    margin-bottom: 1rem;       /* Espacio de 16px debajo del título */
+    color: #333;               /* Color gris oscuro */
+    border-bottom: 2px solid #007acc; /* Línea azul decorativa debajo del título */
+    padding-bottom: 0.5rem;    /* Espacio de 8px entre el texto y la línea */
+}
+
+/* Párrafos dentro de las tarjetas */
+.card p {
+    font-size: 0.95rem;        /* Tamaño ligeramente menor (15.2px) */
+    color: #555;               /* Color gris medio */
+    line-height: 1.5;          /* Altura de línea normal */
+}
+
+/* Listas dentro de las tarjetas */
+.card ul {
+    list-style-type: none;     /* Elimina las viñetas (puntos) de la lista */
+    margin: 0;                 /* Elimina los márgenes por defecto de la lista */
+}
+
+/* Elementos de lista dentro de las tarjetas */
+.card li {
+    margin-bottom: 0.75rem;    /* Espacio de 12px entre items de lista */
+}
+
+/* Enlaces dentro de las tarjetas */
+.card a {
+    color: #007acc;            /* Color azul consistente con el diseño */
+    text-decoration: none;     /* Sin subrayado por defecto */
+    transition: color 0.2s;    /* Transición suave para cambios de color */
+}
+
+/* Efecto hover para enlaces dentro de tarjetas */
+.card a:hover {
+    color: #005a99;           /* Cambia a azul más oscuro al hacer hover */
+    text-decoration: underline; /* Añade subrayado al hacer hover */
+}
+
+/* ===== FOOTER ===== */
+/* Estilos para el pie de página */
+.site-footer {
+    background-color: #fff;     /* Fondo blanco igual que el header */
+    border-top: 1px solid #eaeaea; /* Línea superior gris muy clara */
+    padding: 1.5rem 0;         /* Espaciado interno: 24px arriba/abajo */
+    margin-top: 3rem;          /* Espacio de 48px antes del footer */
+    text-align: center;        /* Centra el texto horizontalmente */
+}
+
+/* Contenedor dentro del footer */
+.site-footer .container {
+    display: flex;              /* Usa Flexbox para alinear elementos */
+    justify-content: center;    /* Centra los elementos horizontalmente */
+    align-items: center;        /* Centra los elementos verticalmente */
+    gap: 1rem;                  /* Espacio de 16px entre elementos */
+}
+
+/* Enlaces dentro del footer */
+.site-footer a {
+    color: #007acc;            /* Color azul consistente */
+    text-decoration: none;     /* Sin subrayado por defecto */
+}
+
+/* Efecto hover para enlaces del footer */
+.site-footer a:hover {
+    text-decoration: underline; /* Añade subrayado al hacer hover */
+}
+
+/* ===== RESPONSIVE ===== */
+/* Media Query para pantallas de hasta 768px (tablets y móviles) */
+@media (max-width: 768px) {
+    /* Cambia el layout de grid a una sola columna en móvil */
+    .layout {
+        grid-template-columns: 1fr; /* Una sola columna (elimina la sidebar al lado) */
+        gap: 2rem;                  /* Reduce el espacio entre elementos a 32px */
+        padding: 2rem 0;           /* Reduce el padding a 32px arriba/abajo */
+    }
+    
+    /* Cambia el header de horizontal a vertical en móvil */
+    .site-header .container {
+        flex-direction: column;     /* Apila el título y la navegación verticalmente */
+        gap: 1rem;                  /* Espacio de 16px entre elementos apilados */
+        text-align: center;         /* Centra el texto en el header */
+    }
+    
+    /* Reduce el espacio entre enlaces de navegación en móvil */
+    .site-header nav {
+        gap: 1.5rem;                /* Espacio de 24px entre enlaces */
+    }
+    
+    /* Reduce el tamaño del título del artículo en móvil */
+    #post-title {
+        font-size: 1.8rem;         /* Reduce a 28.8px en móvil */
+    }
+    
+    /* Reduce el padding interno del artículo en móvil */
+    .post {
+        padding: 1.5rem;           /* Reduce a 24px en móvil */
+    }
+    
+    /* Desactiva el efecto sticky en la sidebar en móvil */
+    .sidebar {
+        position: static;          /* Vuelve a posición normal (no sticky) */
+    }
+    
+    /* Cambia el footer a diseño vertical en móvil */
+    .site-footer .container {
+        flex-direction: column;    /* Apila elementos verticalmente */
+        gap: 0.5rem;               /* Espacio pequeño de 8px entre elementos */
+    }
+}
+
+/* Media Query para pantallas muy pequeñas (hasta 480px) */
+@media (max-width: 480px) {
+    /* Reduce aún más el tamaño del título del blog */
+    .site-title {
+        font-size: 1.5rem;         /* Reduce a 24px en pantallas muy pequeñas */
+    }
+    
+    /* Reduce más el padding del artículo */
+    .post {
+        padding: 1rem;             /* Reduce a 16px en pantallas muy pequeñas */
+    }
+    
+    /* Reduce más el tamaño del título del artículo */
+    #post-title {
+        font-size: 1.5rem;         /* Reduce a 24px en pantallas muy pequeñas */
+    }
+    
+    /* Reduce el padding de las tarjetas */
+    .card {
+        padding: 1rem;             /* Reduce a 16px en pantallas muy pequeñas */
+    }
+}
